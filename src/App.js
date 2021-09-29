@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { observer } from "mobx-react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Welcome from "./pages/Welcome";
+import Home from "./pages/Home";
+// CSS
+import "./App.css";
+import WelcomeStepTwo from "./pages/WelcomeStepTwo";
+import WelcomeStepThree from "./pages/WelcomeStepThree";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path='/login'>
+                    <Login />
+                </Route>
+                <Route path='/signup'>
+                    <Signup />
+                </Route>
+                <Route path='/welcomeStepThree'>
+                    <WelcomeStepThree />
+                </Route>
+                <Route path='/welcomeStepTwo'>
+                    <WelcomeStepTwo />
+                </Route>
+                <Route path='/welcome'>
+                    <Welcome />
+                </Route>
+                <Route path='/overview'>
+                    <Home />
+                </Route>
+                <Route path='/'>
+                    <Login />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
-export default App;
+export default observer(App);

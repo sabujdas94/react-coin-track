@@ -1,0 +1,3 @@
+.no-outline > .MuiInput-root::before {
+    display: none;
+}
