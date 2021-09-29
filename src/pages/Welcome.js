@@ -121,7 +121,7 @@ function Welcome() {
                         variant='contained'
                         onClick={handleSubmit}
                         loading={isSubmitting}
-                        disabled={String(values.amount).length === 0}
+                        disabled={values.amount <= 0}
                     >
                         ADD
                     </LoadingButton>
